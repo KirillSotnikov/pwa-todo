@@ -3,7 +3,9 @@ import Router from 'vue-router'
 
 import Home from '@/pages/Home'
 import About from '@/pages/About'
-import AppList from '@/pages/AppList'
+
+import AppList from '@/pages/AppList/index'
+import AppTodo from '@/pages/AppList/Todo'
 
 Vue.use(Router)
 
@@ -21,6 +23,10 @@ export default new Router({
     {
       path: '/list',
       component: AppList
+    },
+    {
+      path: '/list/todo',
+      component: AppTodo
     }
   ]
 })
