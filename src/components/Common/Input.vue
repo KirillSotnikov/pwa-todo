@@ -5,8 +5,8 @@
       :class="`form-control ${newClass}`"
       :name="name"
       :placeholder="placeholder"
-      v-model="text"
-      @input="changeValue(text, name)"
+      v-model="value"
+      @input="changeValue(value, name)"
     >
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
   ],
   data () {
     return {
-      text: ''
+      value: ''
     }
   }
 }

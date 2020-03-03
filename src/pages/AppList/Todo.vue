@@ -1,12 +1,14 @@
 <template>
   <div class="container py-4">
-    
+
     <app-todo-form
       :addFunction="addTodo"
     />
     <app-todo-list
-      :todoList="todoList"
+      :todoList="todos"
       class="mt-4"
+      :deleteFunction="deleteTodo"
+      :inputDone="inputDone"
     />
   </div>
 </template>
@@ -21,21 +23,48 @@ export default {
     'app-todo-form': TodoForm,
     'app-todo-list': TodoList
   },
+  data () {
+    return {
+      todos: []
+    }
+  },
   computed: {
-    todoList () {
-      return this.$store.getters.todoList
+    async todoList () {
+      const {todos, isFetch} = this.$store.getters.todoList
+      let todoList = todos
+      if (todos.length == 0) {
+        if(isFetch == false) {
+          const fetchTodos = await this.$store.dispatch('fetchTodoList')
+          todoList = fetchTodos
+        }
+      }
+      this.todos = todoList
     }
   },
   methods: {
     addTodo (text) {
       this.$store.dispatch('addTodo', text)
+    },
+    deleteTodo (id) {
+      this.$store.dispatch('deleteTodo', id)
+    },
+    inputDone (todoItem) {
+      this.$store.dispatch('setInputDone', todoItem)
     }
+  },
+  mounted () {
+    const getTodo = async () => {
+      const {todos, isFetch} = this.$store.getters.todoList
+      let todoList = todos
+      if (todos.length == 0) {
+        if(isFetch == false) {
+          const fetchTodos = await this.$store.dispatch('fetchTodoList')
+          todoList = fetchTodos
+        }
+      }
+      this.todos = todoList
+    }
+    getTodo()
   }
-  // mounted () {
-  //   let todo = new Todo()
-  //   const newTodo = todo
-  //     .setText('newTodo')
-  //     .getObject()
-  // }
 }
 </script>

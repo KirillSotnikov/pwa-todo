@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Home from '@/pages/Home'
 import About from '@/pages/About'
 
-import AppList from '@/pages/AppList/index'
+import AppList from '@/pages/AppList/Main'
 import AppTodo from '@/pages/AppList/Todo'
 
 Vue.use(Router)

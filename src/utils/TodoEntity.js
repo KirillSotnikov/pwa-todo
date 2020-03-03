@@ -27,9 +27,19 @@ class Todo {
     return this
   }
 
+  setObject ({id, text, checked, editable, done}) {
+    this.id = id
+    this.text = text
+    this.checked = checked
+    this.editable = editable
+    this.done = done
+    
+    return this
+  }
+
   getObject () {
     return {
-      id: uuidv1(),
+      id: this.id || uuidv1(),
       text: this.text,
       checked: this.checked || false,
       editable: this.editable || false,

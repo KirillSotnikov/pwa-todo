@@ -8,7 +8,7 @@
     >
       <div class="d-flex">
         <div class="form-check form-check-inline">
-          <input :checked="todoItem.checked" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <input @change="inputDone(todoItem)" :checked="todoItem.done" class="form-check-input" type="checkbox">
         </div>
 
         <div class="position-relative">
@@ -28,6 +28,7 @@
 
       <div
         class="close close-icon"
+        @click="deleteFunction(todoItem.id)"
       >
         <span aria-hidden="true">&times;</span>
       </div>
@@ -40,7 +41,9 @@
 <script>
 export default {
   props: [
-    'todoList'
+    'todoList',
+    'deleteFunction',
+    'inputDone'
   ]
 }
 </script>

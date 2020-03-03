@@ -4,7 +4,7 @@
       name="text"
       type="text"
       placeholder="Your ToDo"
-      newClass="dadsad"
+      newClass=""
       :changeValue="changeValue"
     />
     <app-button
