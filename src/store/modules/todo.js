@@ -31,7 +31,10 @@ export default {
 
   actions: {
     fetchTodoList({commit}) {
-      const data = getLocalStorageByName('todos')
+      let data = getLocalStorageByName('todos')
+      if (data == null) {
+        data = []
+      }
       commit('fetchTodoList', data)
 
       commit('setFetch', true)

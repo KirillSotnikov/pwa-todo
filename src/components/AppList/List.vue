@@ -1,14 +1,11 @@
 <template>
   <div class="list-group">
-    <li
-      v-for="(link, index) in linkArr"
-      :key="index"
-      class="list-group-item"
-    >
       <app-list-item
+        v-for="(link, index) in linkArr"
+        :key="index"
+        class="list-group-item"
         :linkInfo="link"
       />
-    </li>
   </div>
 </template>
 
