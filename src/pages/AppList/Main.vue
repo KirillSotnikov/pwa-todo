@@ -18,6 +18,10 @@ export default {
         {
           title: 'ToDo List',
           href: '/todo'
+        },
+        {
+          title: 'Calculator',
+          href: '/calculator'
         }
       ]
     }

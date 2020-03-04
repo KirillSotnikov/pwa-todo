@@ -6,6 +6,7 @@ import About from '@/pages/About'
 
 import AppList from '@/pages/AppList/Main'
 import AppTodo from '@/pages/AppList/Todo'
+import AppCalculator from '@/pages/AppList/Calculator'
 
 Vue.use(Router)
 
@@ -27,6 +28,10 @@ export default new Router({
     {
       path: '/list/todo',
       component: AppTodo
+    },
+    {
+      path: '/list/calculator',
+      component: AppCalculator
     }
   ]
 })
